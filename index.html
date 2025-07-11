@@ -2,52 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rive Piano</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VTS Logo Hero</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
+      background: #ffffff;
       height: 100%;
       width: 100%;
-      background: linear-gradient(90deg, #D9CF79 0%, #5612D6 100%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    }
+
+    #logo-container {
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      z-index: 10;
+      width: 200px; /* Adjust based on desired size */
+      height: auto;
     }
 
     canvas {
-      width: 1588px;
-      height: 1000px;
+      width: 100%;
+      height: auto;
       display: block;
     }
   </style>
   <script src="https://unpkg.com/@rive-app/webgl2"></script>
 </head>
 <body>
-  <canvas id="riveCanvas"></canvas>
+
+  <div id="logo-container">
+    <canvas id="riveLogoCanvas"></canvas>
+  </div>
 
   <script>
-    const canvas = document.getElementById('riveCanvas');
-    
-    // Set canvas size (render size)
-    canvas.width = 1588;
-    canvas.height = 1000;
+    const canvas = document.getElementById("riveLogoCanvas");
 
-    // Match the style size to match actual size
-    canvas.style.width = '1588px';
-    canvas.style.height = '1000px';
+    // You can tweak the canvas render size if needed
+    canvas.width = 500;
+    canvas.height = 500;
 
-    const riveInstance = new rive.Rive({
-      src: 'piano.riv',
+    new rive.Rive({
+      src: 'vts_logo.riv',
       canvas: canvas,
       autoplay: true,
-      artboard: 'piano',
+      artboard: 'vtsLogo2025',
       stateMachines: ['State Machine 1'],
       onLoad: () => {
-        riveInstance.resizeDrawingSurfaceToCanvas();
+        // Optional: ensure the animation fits the canvas
+        canvas.rive?.resizeDrawingSurfaceToCanvas?.();
       }
     });
   </script>
+
 </body>
 </html>
