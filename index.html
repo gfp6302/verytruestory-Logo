@@ -15,10 +15,10 @@
 
     #logo-container {
       position: fixed;
-      top: 24px;
-      left: 24px;
+      top: 28px;
+      left: 48px;
       z-index: 10;
-      width: 200px; /* Adjust based on desired size */
+      width: 200px; 
       height: auto;
     }
 
@@ -39,7 +39,6 @@
   <script>
     const canvas = document.getElementById("riveLogoCanvas");
 
-    // You can tweak the canvas render size if needed
     canvas.width = 500;
     canvas.height = 500;
 
@@ -47,10 +46,10 @@
       src: 'vts_logo.riv',
       canvas: canvas,
       autoplay: true,
-      artboard: 'vtsLogo2025',
+      artboard: 'logo2',
       stateMachines: ['State Machine 1'],
       onLoad: () => {
-        // Optional: ensure the animation fits the canvas
+  
         canvas.rive?.resizeDrawingSurfaceToCanvas?.();
       }
     });
